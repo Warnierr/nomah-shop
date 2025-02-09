@@ -1,59 +1,36 @@
-import { Button } from '@/public/components/ui/button'
-import Image from 'next/image'
+'use client'
 
-export default function Home() {
+import { ChevronUp } from 'lucide-react'
+import { Button } from '../components/ui/button'
+import Link from 'next/link'
+import { APP_NAME } from '@/lib/constants'
+
+export default function Footer() {
   return (
-    <div className='grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]'>
-      <main className='flex flex-col gap-8 row-start-2 items-center sm:items-start'>
-        <Button>Button</Button>
-      </main>
-      <footer className='row-start-3 flex gap-6 flex-wrap items-center justify-center'>
-        <a
-          className='flex items-center gap-2 hover:underline hover:underline-offset-4'
-          href='https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app'
-          target='_blank'
-          rel='noopener noreferrer'
+    <footer className='bg-black  text-white underline-link'>
+      <div className='w-full'>
+        <Button
+          variant='ghost'
+          className='bg-gray-800 w-full  rounded-none '
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          <Image
-            aria-hidden
-            src='/file.svg'
-            alt='File icon'
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className='flex items-center gap-2 hover:underline hover:underline-offset-4'
-          href='https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <Image
-            aria-hidden
-            src='/window.svg'
-            alt='Window icon'
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className='flex items-center gap-2 hover:underline hover:underline-offset-4'
-          href='https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <Image
-            aria-hidden
-            src='/globe.svg'
-            alt='Globe icon'
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+          <ChevronUp className='mr-2 h-4 w-4' />
+          Back to top
+        </Button>
+      </div>
+      <div className='p-4'>
+        <div className='flex justify-center  gap-3 text-sm'>
+          <Link href='/page/conditions-of-use'>Conditions of Use</Link>
+          <Link href='/page/privacy-policy'> Privacy Notice</Link>
+          <Link href='/page/help'>Help</Link>
+        </div>
+        <div className='flex justify-center text-sm'>
+          <p> © 2000-2024, {APP_NAME}, Inc. or its affiliates</p>
+        </div>
+        <div className='mt-8 flex justify-center text-sm text-gray-400'>
+          123, Main Street, Anytown, CA, Zip 12345 | +1 (123) 456-7890
+        </div>
+      </div>
+    </footer>
   )
 }

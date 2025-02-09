@@ -1,11 +1,13 @@
-import Header from '@/public/components/shared/header'
-import Footer from '@/public/components/shared/footer'
+import Header from '@/components/shared/header'
+import Footer from '@/components/shared/footer'
 
-export default function HomeLayout({
+export default async function HomeLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <div className='flex min-h-screen flex-col'>
+    <div className='flex flex-col min-h-screen'>
       <Header />
       <main className='flex-1 flex flex-col'>{children}</main>
       <Footer />
